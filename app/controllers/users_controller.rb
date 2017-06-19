@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   before_action :get_user, only: [:show, :edit, :update]
-  before_action 
+
 
   def get_user
     @user = User.find params["id"]
@@ -25,13 +25,19 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  def show
+  def show  # now in before_action
   end
 
   def edit
+    redirect_to root_path unless @current_user == @user
   end
 
   def update
+
+    @user = @current_user
+    @user.update user_params
+    redirect_to user_path(params["id"])
+
   end
 
   def destroy
