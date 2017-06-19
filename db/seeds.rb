@@ -8,4 +8,4 @@
 
 
 User.destroy_all
-u1 = User.create name:"robotpanda", email:"robot@pan.da", password:"panda"
+u1 = User.create name:"robotpanda", email:"robot@pan.da", password:"panda", image:"https://robohash.org/robotpanda.png?set=set2&size=100x100&bgset=bg1"

@@ -13,6 +13,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create user_params
+    image = "https://robohash.org/#{@user.name}.png?set=set2&size=100x100&bgset=bg1"
+    @user.update image:image
     if @user.id.present?
       session[:user_id] = @user.id
       redirect_to user_path(@user)
