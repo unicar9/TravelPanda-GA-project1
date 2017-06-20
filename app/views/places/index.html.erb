@@ -1,12 +1,13 @@
 <h2>Places Index</h2>
 
-<% @places.each do |p| %>
+<% @places.each do |place| %>
 
-  <div class="place">
-    <img class="place_img" src="<%= p.image %>" alt="">
-    <p>
-      <%= link_to p.name, place_path(p) %>
-    </p>
+  <div class="data-item">
+    <img class="data-item-img" src="<%= place.image %>" alt="">
+    <div class="data-item-name">
+      <%= link_to place.name, place_path(place) %>
+    </div>
+
   </div>
 
 

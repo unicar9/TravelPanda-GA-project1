@@ -1,3 +1,18 @@
 // Place all the styles related to the places controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.place_img{
+  max-width: 100px;
+}
+
+
+
+.place *{
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom: 10px;
+}
+
+.place_name{
+  margin-left: 5px;
+}

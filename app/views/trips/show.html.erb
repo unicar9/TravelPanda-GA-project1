@@ -8,13 +8,13 @@
   <% @trip.days.each_with_index do |d,i| %>
     <li>
       Day <%= i+1 %> -
-      <%= link_to d.trip_date, day_path(d) %>
+      <%= link_to d.trip_date, trip_day_path(@trip.id, d.id) %>
     </li>
   <% end %>
 </ul>
 
 
-<p> <%= link_to "Add One Day", new_day_path %>   </p>
+<p> <%= link_to "Add One Day", new_trip_day_path(@trip.id) %>   </p>
 
 <hr>
 <%= link_to "Edit Trip", edit_trip_path(@trip) %> |

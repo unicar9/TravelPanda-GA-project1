@@ -10,9 +10,9 @@ Rails.application.routes.draw do
   delete '/login' => 'session#destroy' # log out destroy the session
 
   resources :users
-  resources :trips
-  resources :days
-
+  resources :trips do
+    resources :days
+  end
   #maybe try the following url:
   # get '/trips/:id/days/new' => 'days#new'
 

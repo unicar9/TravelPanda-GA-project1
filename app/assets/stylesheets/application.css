@@ -17,3 +17,18 @@
 img{
   max-width: 300px;
 }
+
+
+.data-item *{
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom: 10px;
+}
+
+.data-item-img{
+  max-width: 100px;
+}
+
+.data-item-name{
+  margin-left: 5px;
+}

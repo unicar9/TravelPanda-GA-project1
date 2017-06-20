@@ -55,6 +55,8 @@ d6.places << p5 << p6
 
 puts "places planted, added to days"
 
+Accomodation.destroy_all
+
 a1 = Accomodation.create name:"Edo-Sakura Tokyo", address:"Japan, 〒110-0004 Tokyo, Taito, Shitaya, 3 Chome−２−１３", url:"https://www.agoda.com/en-au/the-edo-sakura/hotel/tokyo-jp.html?checkin=2017-06-29&los=1&adults=2&rooms=1&cid=-1&searchrequestid=b356b9ba-63db-4b8b-84bd-c4c0ad7f78ad", image:"https://pix6.agoda.net/hotelImages/443/443811/443811_13062312210013482157.jpg?s=1024x768"
 
 

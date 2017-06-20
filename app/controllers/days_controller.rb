@@ -7,7 +7,8 @@ class DaysController < ApplicationController
 
   def new
     @day = Day.new
-    
+    @trip = Trip.find params["trip_id"]
+
   end
 
   def create
