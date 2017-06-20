@@ -1,9 +1,22 @@
 <h2>User Details</h2>
 
-<img src="<%= @user.image %>" alt="">
+<%= cl_image_tag @user.image %>
+
 
 <p>Email: <%= @user.email %> </p>
 <p>Name: <%= @user.name %> </p>
 
+
+<ul>
+  <% @user.trips.each do |trip| %>
+    <li>
+      <%= link_to trip.name, trip_path(trip) %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "add new trip", new_trip_path %>
+
+<hr>
 
 <%= link_to_if @current_user == @user, 'edit', edit_user_path(@user) %>

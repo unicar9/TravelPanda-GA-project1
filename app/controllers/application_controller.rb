@@ -17,5 +17,11 @@ class ApplicationController < ActionController::Base
 
   # to add: check_if_admin or check_if_creator
 
+  def check_if_admin
+    redirect_to root_path unless @current_user.present? and @current_user.is_admin
+
+
+  end
+
 
 end

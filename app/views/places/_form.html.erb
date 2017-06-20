@@ -1,0 +1,23 @@
+<%= form_for(@place, html:{multipart: true} ) do |f| %>
+
+<div class="filed">
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</div>
+
+<div class="filed">
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+</div>
+
+<div class="filed">
+  <%= f.label :map_url %>
+  <%= f.text_field :map_url %>
+</div>
+
+<div class="filed">
+  <%= f.label :image %>
+  <%= f.cl_image_upload :image %>
+</div>
+
+<% end %>

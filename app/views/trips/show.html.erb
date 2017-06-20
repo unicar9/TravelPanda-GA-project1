@@ -1,0 +1,21 @@
+<h2>Trip Details</h2>
+
+<p>Name: <%= @trip.name %>   </p>
+<p>Destination: <%= @trip.destination %>   </p>
+<p>Start: <%= @trip.start_date %>  </p>
+<p>End: <%= @trip.end_date %>  </p>
+<ul>
+  <% @trip.days.each_with_index do |d,i| %>
+    <li>
+      Day <%= i+1 %> -
+      <%= link_to d.trip_date, day_path(d) %>
+    </li>
+  <% end %>
+</ul>
+
+
+<p> <%= link_to "Add One Day", new_day_path %>   </p>
+
+<hr>
+<%= link_to "Edit Trip", edit_trip_path(@trip) %> |
+<%= link_to "Delete Trip", trip_path(@trip), data:{:confirm => "Are you sure"}, :method => :delete %>

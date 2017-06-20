@@ -1,0 +1,28 @@
+<h2>  <%= @day.trip_date %> - <%= @day.trip.name %>  </h2>
+
+<hr>
+<%= link_to "back to trip page", trip_path(@day.trip_id) %>
+
+<h3>Stay at:</h3>
+<ul>
+  <% @day.accomodations.each do |a| %>
+    <hr>
+    <img src="<%= a.image %>" alt="">
+    <br>
+    <%= link_to a.name, a.url %>
+    <br>
+    <%= a.address %>
+  <% end %>
+</ul>
+
+<h3>Going to Visit:</h3>
+<ul>
+  <% @day.places.each do |p| %>
+    <hr>
+    <img src="<%=p.image%>" alt="">
+    <br>
+    <%= link_to p.name, p.map_url %>
+    <br>
+    <%= p.address %>
+  <% end %>
+</ul>

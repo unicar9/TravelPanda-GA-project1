@@ -1,0 +1,9 @@
+<h2>Trips Index</h2>
+
+<% @trips.each do |t| %>
+
+  <p>
+    <%= link_to t.name, trip_path(t) %> <span>- user: <%= t.users.first.name %> </span> 
+  </p>
+
+<% end %>

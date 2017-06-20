@@ -10,18 +10,79 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170619013826) do
+ActiveRecord::Schema.define(version: 20170620024744) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "accomodations", force: :cascade do |t|
+    t.text     "name"
+    t.text     "address"
+    t.text     "url"
+    t.text     "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "accomodations_days", force: :cascade do |t|
+    t.integer "accomodation_id"
+    t.integer "day_id"
+  end
+
+  create_table "days", force: :cascade do |t|
+    t.date     "trip_date"
+    t.integer  "trip_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "days_places", force: :cascade do |t|
+    t.integer "day_id"
+    t.integer "place_id"
+  end
+
+  create_table "places", force: :cascade do |t|
+    t.text     "name"
+    t.text     "address"
+    t.text     "map_url"
+    t.text     "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "transportations", force: :cascade do |t|
+    t.text     "name"
+    t.time     "departure_time"
+    t.time     "arrival_time"
+    t.text     "departure_port"
+    t.text     "arrival_port"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "trips", force: :cascade do |t|
+    t.text     "name"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.text     "destination"
+    t.integer  "duration"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "trips_users", force: :cascade do |t|
+    t.integer "trip_id"
+    t.integer "user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
     t.string   "password_digest"
     t.text     "image"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.boolean  "is_admin",        default: false
   end
 
 end

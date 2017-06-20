@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
 
   before_action :get_user, only: [:show, :edit, :update]
-
+  before_action :check_if_admin, only: [:index]
+  before_action :check_if_logged_in, only: [:show, :edit, :update, :destroy]
 
   def get_user
     @user = User.find params["id"]
@@ -12,15 +13,24 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create user_params
+    @user = User.new user_params
     image = "https://robohash.org/#{@user.name}.png?set=set2&size=100x100&bgset=bg1"
-    @user.update image:image
+    @user.image = image  #give new user a generated avatar
+
+    if params[:file].present?
+      req = Cloudinary::Uploader.upload params[:file]
+      @user.image = req['public_id']
+    end
+
+    @user.save
+
     if @user.id.present?
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
       render :new
     end
+
   end
 
   def index

@@ -4,6 +4,9 @@
   <% @users.each do |u| %>
   <li>
     <%= link_to u.name, user_path(u) %>
+    <% if u.is_admin %>
+    (admin)
+    <% end %>
   </li>
   <% end %>
 </ul>
