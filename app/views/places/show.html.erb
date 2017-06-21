@@ -1,2 +1,18 @@
-<h1>Places#show</h1>
-<p>Find me in app/views/places/show.html.erb</p>
+<h2>Place Details</h2>
+
+<%= link_to "back to Places", places_path %>
+<hr>
+
+<%= cl_image_tag @place.image %>
+
+<h3> <%= @place.name %>  </h3>
+
+<p>
+  <%= @place.address %>
+</p>
+
+<p>
+  <%= link_to "website", @place.url %>
+</p>
+
+<iframe src="<%= @place.map_url %>" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>

@@ -32,6 +32,5 @@ class AccomodationsController < ApplicationController
   private
   def accomodation_params
     params.require(:accomodation).permit(:name, :address, :image, :url)
-
   end
 end
