@@ -8,7 +8,8 @@
   <% @trip.days.each_with_index do |d,i| %>
     <li>
       Day <%= i+1 %> -
-      <%= link_to d.trip_date, trip_day_path(@trip.id, d.id) %>
+      <%= link_to d.trip_date, trip_day_path(@trip.id, d.id) %> |
+      <%= link_to "x", trip_day_path(@trip.id, d.id), data:{:confirm => "Sure?"}, :method => :delete %>
     </li>
   <% end %>
 </ul>

@@ -1,0 +1,15 @@
+<%= form_for [@trip, @day] do |f| %>
+
+<div class="form">
+
+  <div class="field">
+    <%= f.label :trip_date %>
+    <%= f.date_field :trip_date, :value => Time.now.strftime('%d-%m-%Y') %>
+  </div>
+
+
+  <%= f.submit %>
+
+</div>
+
+<% end %>
