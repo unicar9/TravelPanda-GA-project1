@@ -7,14 +7,32 @@
 
 <h3>  <%=@day.destination %></h3>
 
-<h3>Places:</h3>
-<ul>
-  <% @day.places.each do |p| %>
-    <hr>
-    <img src="<%=p.image%>" alt="">
-    <br>
-    <%= link_to p.name, p.map_url %>
-    <br>
-    <%= p.address %>
+
+<h4>Stay at:</h4>
+<% @day.places.each do |p| %>
+  <% if p.place_type == 1 %>
+    <ul>
+      <hr>
+      <img class:"place_img" src="<%=p.image%>" alt="">
+      <br>
+      <%= link_to p.name, place_path(p) %>
+      <br>
+      <%= p.address %>
+    </ul>
   <% end %>
-</ul>
+<% end %>
+
+
+<h4>Visit:</h4>
+<% @day.places.each do |p| %>
+  <% if p.place_type == 2 %>
+    <ul>
+      <hr>
+      <img class:"place_img" src="<%=p.image%>" alt="">
+      <br>
+      <%= link_to p.name, place_path(p) %>
+      <br>
+      <%= p.address %>
+    </ul>
+  <% end %>
+<% end %>
