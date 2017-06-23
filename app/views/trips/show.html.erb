@@ -1,16 +1,20 @@
-<h2>Trip Details</h2>
+<h3>Trip Details</h3>
 
-<p>
-  Users:
-  <ul class="trip-users">
-    <% @trip.users.each do |u| %>
-      <li class="trip-users">
-        <%= link_to image_tag(u.image, class:"uicon-sm"), user_path(u) %>
-      </li>
-    <% end %>
-  </ul>
-  <%= link_to "[+]", "/trips/#{@trip.id}/invite" %>
-</p>
+<div class="trip-users">
+  <div class="ui header">
+    Pandas
+  </div>
+  <% @trip.users.each do |u| %>
+    <div class="users-list">
+      <%= link_to image_tag(u.image, class:"uicon-sm"), user_path(u) %>
+    </div>
+  <% end %>
+    <div class="">
+      <a href="/trips/<%= @trip.id %>/invite">
+        <i class="add user icon"></i>
+      </a>
+    </div>
+</div>
 
 
 

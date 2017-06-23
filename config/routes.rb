@@ -25,7 +25,9 @@ Rails.application.routes.draw do
   get '/trips/:trip_id/days/:id/add/search_res' => 'days#search_res'
 
   resources :places
-  
+
+  get'trips/:trip_id/days/:id/add/new' => 'days#create_and_add_place'
+
 
   resources :transportations
   resources :accomodations

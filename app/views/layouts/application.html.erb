@@ -33,6 +33,9 @@
               <i class="dropdown icon"></i>
               <div class="menu">
                 <div class="item">
+                  <i class="user icon"></i><%= link_to "Your Homepage", user_path(@current_user) %>
+                </div>
+                <div class="item">
                   <i class="edit icon"></i><%= link_to "Edit Profile", edit_user_path(@current_user) %>
                 </div>
                 <div class="item">

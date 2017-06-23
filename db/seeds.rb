@@ -21,13 +21,13 @@ t1 = Trip.create name:"Japan Exploration", start_date:"2017-12-14", end_date:"20
 puts "seed trip planted......"
 
 Day.destroy_all
-d1 = Day.create trip_date:"2017-12-14"
-d2 = Day.create trip_date:"2017-12-15"
-d3 = Day.create trip_date:"2017-12-16"
-d4 = Day.create trip_date:"2017-12-17"
-d5 = Day.create trip_date:"2017-12-18"
-d6 = Day.create trip_date:"2017-12-19"
-d7 = Day.create trip_date:"2017-12-20"
+d1 = Day.create trip_date:"2017-12-14", destination:"Sydney - Tokyo"
+d2 = Day.create trip_date:"2017-12-15", destination:"Tokyo"
+d3 = Day.create trip_date:"2017-12-16", destination:"Tokyo"
+d4 = Day.create trip_date:"2017-12-17", destination:"Kyoto"
+d5 = Day.create trip_date:"2017-12-18", destination:"Kyoto"
+d6 = Day.create trip_date:"2017-12-19", destination:"Kyoto - Osaka"
+d7 = Day.create trip_date:"2017-12-20", destination:"Osaka - Shanghai"
 
 t1.days << d1 << d2 << d3 << d4 << d5 << d6 << d7
 
@@ -50,6 +50,10 @@ p5 = Place.create name:"Osaka Aquarium Kaiyukan", address:"Japan, 〒552-0022 Ō
 p6 = Place.create name:"Tsutenkaku", address:"Japan, 〒556-0002 Ōsaka-fu, Ōsaka-shi, Naniwa-ku, Ebisuhigashi, 1 Chome−１８−６", map_url:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.0870842825097!2d135.50411711514147!3d34.65250359330584!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e76077e042ff%3A0xe5cbcf56def44557!2sTsutenkaku!5e0!3m2!1sen!2sau!4v1498026154077", image:"https://farm1.staticflickr.com/343/19832740889_4ae51da012_b.jpg", place_type:2
 
 p7 = Place.create name:"Tokyo Skytree", address:"Japan, 〒131-0045 Tokyo, Sumida, Oshiage, 1 Chome−１−２", map_url:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.656607568995!2d139.80851171516665!3d35.710067035997554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188ed0d12f9adf%3A0x7d1d4fb31f43f72a!2sTokyo+Skytree!5e0!3m2!1sen!2sau!4v1498178110286", image:"http://linshibi.com/img/1184161687.jpg", place_type:2
+
+p8 = Place.create name:"Tokyo Skytree Station", address:"Japan, 〒131-0045 Tōkyō-to, Sumida-ku, Oshiage, 1 Chome−１", place_type:4
+
+p9 = Place.create name:"Ichiran Ramen Ueno", address:"Japan, 〒110-0005 Tōkyō-to, Taitō-ku, Ueno, 7 Chome−１−１", map_url:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.560808397889!2d139.77302871516667!3d35.712423935868294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188e9c1ad496af%3A0xeb60ba52eeac5d6e!2sIchiran!5e0!3m2!1sen!2sau!4v1498181605097", image:"http://3.bp.blogspot.com/-MYTjfR2jAgI/UPLhWSxrjLI/AAAAAAAAE6c/eF-hAWHB56g/s1600/DSCN0614.JPG", place_type:3
 
 d2.places << p1
 d3.places << p2

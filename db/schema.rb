@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170622015100) do
+ActiveRecord::Schema.define(version: 20170623014640) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,19 @@ ActiveRecord::Schema.define(version: 20170622015100) do
     t.integer "day_id"
   end
 
+  create_table "bills", force: :cascade do |t|
+    t.integer  "total_amount"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "days", force: :cascade do |t|
     t.date     "trip_date"
     t.integer  "trip_id"
@@ -40,6 +53,21 @@ ActiveRecord::Schema.define(version: 20170622015100) do
   create_table "days_places", force: :cascade do |t|
     t.integer "day_id"
     t.integer "place_id"
+  end
+
+  create_table "notes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.text     "content"
+    t.text     "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.integer  "user_id"
+    t.text     "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "places", force: :cascade do |t|

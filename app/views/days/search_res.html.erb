@@ -1,15 +1,20 @@
+<h4>
 <% if @places.present? %>
-  <h2>Places match " <%= params[:q] %> "</h2>
+  Places match " <%= params[:q] %> "
 <% else %>
-  <h2>No Places match " <%= params[:q] %> "</h2>
-  <%= link_to "add place yourself", new_place_path %>
+  <h4>No Places match " <%= params[:q] %> "
 <% end %>
+|
+<%= link_to "add place yourself", "/trips/#{@trip.id}/days/#{@day.id}/add/new" %>
+</h4>
+
 
 <ul>
   <% @places.each do |p| %>
-    <li>
+      <hr>
+      <%= image_tag(p.image) %>
+      <br>
       <%= p.name %> <%= button_to 'Add to Day', add_place_to_day_path(@trip, @day, p.id), method: :post  %>
 
-    </li>
   <% end %>
 </ul>

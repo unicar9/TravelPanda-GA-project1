@@ -19,6 +19,19 @@
 }
 
 
+.trip-users{
+  float:right;
+}
+
+.users-list{
+  float:left;
+}
+
+.uicon-sm{
+  width: 40px;
+}
+
+
 .page-content {
   position: fixed;
   left: 0;
@@ -77,9 +90,6 @@ img{
   max-width: 300px;
 }
 
-.uicon-sm{
-  width: 50px;
-}
 
 .trip-users{
   display: inline-block;

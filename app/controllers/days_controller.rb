@@ -9,7 +9,7 @@ class DaysController < ApplicationController
 
   def get_trip
     @trip = Trip.find params["trip_id"]
-  end 
+  end
 
   # click "add new place" link goes here template is a search form (and a create new place form as well)
   def add_new_place
@@ -25,6 +25,9 @@ class DaysController < ApplicationController
     place = Place.find params["place_id"]
     @day.places << place
     redirect_to trip_day_path(@trip,@day)
+  end
+
+  def create_and_add_place
   end
 
 
