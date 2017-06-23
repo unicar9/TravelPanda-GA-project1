@@ -9,8 +9,9 @@
 puts "planting......"
 
 User.destroy_all
-u1 = User.create name:"robotpanda", email:"robot@pan.da", password:"panda", image:"https://robohash.org/robotpanda.png?set=set2&size=100x100&bgset=bg1",is_admin:true
+u1 = User.create name:"robotpanda", email:"robot@pan.da", password:"panda", image:"https://robohash.org/robotpanda.png?set=set1&size=100x100&bgset=bg1",is_admin:true
 u2 = User.create name:"regularpanda", email:"regular@pan.da", password:"panda", image:"http://fillmurray.com/100/100"
+u3 = User.create name:"monsterpanda", email:"monster@pan.da", password:"panda", image:"https://robohash.org/robotpanda.png?set=set2&size=100x100&bgset=bg1"
 
 puts "seed user planted....."
 
