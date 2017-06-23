@@ -13,11 +13,20 @@ Rails.application.routes.draw do
   resources :trips do
     resources :days
   end
+
+  post "/trips/:trip_id/days/:id/add_place/:place_id" => "days#add_place", as: 'add_place_to_day'
+
   #maybe try the following url:
   # get '/trips/:id/days/new' => 'days#new'
+  get '/trips/:id/invite' => 'trips#search_user'
+  post '/trips/:id/invite' => 'trips#invite_user'
 
+  get '/trips/:trip_id/days/:id/add' => 'days#add_new_place'
+  get '/trips/:trip_id/days/:id/add/search_res' => 'days#search_res'
 
   resources :places
+  
+
   resources :transportations
   resources :accomodations
 

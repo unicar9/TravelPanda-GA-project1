@@ -2,9 +2,10 @@
 
 <hr>
 <%= link_to "back to trip page", trip_path(@day.trip_id) %> |
-<%= link_to "add new place", new_place_path %>
+<%= link_to "add new place", "/trips/#{@trip.id}/days/#{@day.id}/add" %> |
+<%= link_to "edit day info", edit_trip_day_path(@trip,@day) %>
 
-
+<h3>  <%=@day.destination %></h3>
 
 <h3>Places:</h3>
 <ul>

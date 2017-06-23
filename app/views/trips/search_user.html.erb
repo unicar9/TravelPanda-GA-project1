@@ -1,0 +1,15 @@
+<h2>Invite a new co-traveller</h2>
+
+<% if flash[:notice].present? %>
+  <p class="error-msg">
+    <%= flash[:notice] %>
+  </p>
+<% end %>
+
+<%= form_tag("/trips/#{@trip.id}/invite", method: "post", class:"form") do %>
+  <div class="field">
+    <%= label_tag :q, "Search User Email" %>
+    <%= email_field_tag :q %>
+  </div>
+  <%= submit_tag "Invite" %>
+<% end %>

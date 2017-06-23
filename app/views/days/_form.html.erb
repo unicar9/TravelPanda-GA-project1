@@ -1,15 +1,16 @@
-<%= form_for [@trip, @day] do |f| %>
+<%= form_for([@trip, @day], html:{class:"form"}) do |f| %>
 
-<div class="form">
 
   <div class="field">
     <%= f.label :trip_date %>
-    <%= f.date_field :trip_date, :value => Time.now.strftime('%d-%m-%Y') %>
+    <%= f.text_field :trip_date %>
   </div>
 
-
+  <div class="field">
+    <%= f.label :destionation %>
+    <%= f.text_field :destination %>
+  </div>
   <%= f.submit %>
 
-</div>
 
 <% end %>

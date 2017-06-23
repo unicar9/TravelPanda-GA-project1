@@ -1,24 +1,58 @@
-<%= form_for(@user, html: {multipart: true} ) do |f| %>
 
-  <%= f.label :email %>
-  <%= f.email_field :email %>
-  <br>
+<div class="ui middle aligned three column center aligned grid container">
+  <div class="column">
+    <h2 class="ui teal image header">
+      <img src="http://i.imgur.com/QrGF2OL.png" class="image" id="travel-panda">
+      <div class="content">
+        TravelPanda
+      </div>
+    </h2>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <br>
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
-  <br>
+    <%= form_for(@user, html: {multipart: true, class: "ui large form"} ) do |f| %>
+      <div class="ui stacked segment">
 
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <br>
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="mail icon"></i>
+            <%= f.email_field :email, placeholder:"Email address" %>
+          </div>
+        </div>
 
-  <%= f.label :image %>
-  <%= f.cl_image_upload :image %>
-  <br>
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="lock icon"></i>
+            <%= f.password_field :password, placeholder:"Pandaword" %>
+          </div>
+        </div>
 
-  <%= f.submit %>
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="lock icon"></i>
+            <%= f.password_field :password_confirmation, placeholder:"Confirm Pandaword" %>
+          </div>
+        </div>
 
-<% end %>
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="user icon"></i>
+            <%= f.text_field :name, placeholder:"Panda Name" %>
+          </div>
+        </div>
+
+
+        <div class="field">
+          <%= f.label "Avanda" %>
+          <%= f.cl_image_upload :image %>
+        </div>
+
+        <div class="">
+          <%= submit_tag("Signup", class:"ui fluid large teal submit button") %>
+        </div>
+
+      <% end %>
+
+
+    </div>
+  </div>
+  <div class="column"></div>
+  <div class="column"></div>

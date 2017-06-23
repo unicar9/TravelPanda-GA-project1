@@ -1,5 +1,20 @@
 <h2>Trip Details</h2>
 
+<p>
+  Users:
+  <ul class="trip-users">
+    <% @trip.users.each do |u| %>
+      <li class="trip-users">
+        <%= link_to image_tag(u.image, class:"uicon-sm"), user_path(u) %>
+      </li>
+    <% end %>
+  </ul>
+  <%= link_to "[+]", "/trips/#{@trip.id}/invite" %>
+</p>
+
+
+
+
 <p>Name: <%= @trip.name %>   </p>
 <p>Destination: <%= @trip.destination %>   </p>
 <p>Start: <%= @trip.start_date %>  </p>
@@ -16,6 +31,7 @@
 
 
 <p> <%= link_to "Add One Day", new_trip_day_path(@trip.id) %>   </p>
+
 
 <hr>
 <%= link_to "Edit Trip", edit_trip_path(@trip) %> |

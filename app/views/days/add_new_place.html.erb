@@ -1,0 +1,17 @@
+<h2>Add New Place</h2>
+
+<% if flash[:notice].present? %>
+  <p class="error-msg">
+    <%= flash[:notice] %>
+  </p>
+<% end %>
+
+<%= form_tag("/trips/#{@trip.id}/days/#{@day.id}/add/search_res", method: "get", class:"form") do %>
+  <div class="field">
+    <%= label_tag :q, "Search Place" %>
+    <%= text_field_tag :q %>
+  </div>
+  <%= submit_tag "Search" %>
+<% end %>
+
+<%= link_to "add new place", new_place_path %>

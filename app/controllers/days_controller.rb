@@ -1,5 +1,5 @@
 class DaysController < ApplicationController
-  before_action :get_day, only: [:show, :edit, :update, :destroy]
+  before_action :get_day, except:[:new, :create]
 
   before_action :get_trip
 
@@ -9,7 +9,24 @@ class DaysController < ApplicationController
 
   def get_trip
     @trip = Trip.find params["trip_id"]
+  end 
+
+  # click "add new place" link goes here template is a search form (and a create new place form as well)
+  def add_new_place
   end
+
+  #list results of places matches the search query
+  def search_res
+    @places = Place.where('lower(name) like ?', "%#{params[:q].downcase}%").all
+  end
+
+
+  def add_place
+    place = Place.find params["place_id"]
+    @day.places << place
+    redirect_to trip_day_path(@trip,@day)
+  end
+
 
   def new
     @day = Day.new
@@ -20,6 +37,8 @@ class DaysController < ApplicationController
     @trip.days << @day
     redirect_to trip_day_path(@trip,@day)
   end
+
+
 
   def index
 
@@ -33,6 +52,8 @@ class DaysController < ApplicationController
   end
 
   def update
+    @day.update day_params
+    redirect_to trip_day_path(@trip,@day)
   end
 
   def destroy
@@ -42,6 +63,6 @@ class DaysController < ApplicationController
 
   private
   def day_params
-    params.require(:day).permit(:trip_date)
+    params.require(:day).permit(:trip_date, :destination)
   end
 end
