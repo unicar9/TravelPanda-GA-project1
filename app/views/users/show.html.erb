@@ -1,22 +1,22 @@
-<h2>User Details</h2>
+<h3>Your Homepage</h3>
 
 <%= cl_image_tag @user.image %>
 
+<h3><%= @user.name %></h3>
 
-<p>Email: <%= @user.email %> </p>
-<p>Name: <%= @user.name %> </p>
+<i class="edit small icon"></i>
+<%= link_to_if @current_user == @user, 'account settings', edit_user_path(@user) %>
 
 
+
+<h4>My Trips:</h4>
 <ul>
   <% @user.trips.each do |trip| %>
     <li>
-      <%= link_to trip.name, trip_path(trip) %>
+      <h3><%= link_to trip.name, trip_path(trip) %> <span class= "travel-dates"> | <%= trip.destination %> | <%= trip.start_date %> </span></h3>
     </li>
   <% end %>
 </ul>
 
-<%= link_to "add new trip", new_trip_path %>
 
-<hr>
-
-<%= link_to_if @current_user == @user, 'edit', edit_user_path(@user) %>
+<%= button_to "add new trip", new_trip_path, class:"ui teal button"%>

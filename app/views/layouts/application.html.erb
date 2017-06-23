@@ -20,6 +20,9 @@
 
       <nav class="navbar">
         <a href="#" class="logo">TravelPanda</a>
+        <a href="<%= new_trip_path %>">
+          <i class="plane icon"></i>
+        </a>
         <span class="user-avatar">
           <% unless @current_user.present? %>
             <%= link_to "Login", login_path %>

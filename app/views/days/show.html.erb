@@ -36,3 +36,17 @@
     </ul>
   <% end %>
 <% end %>
+
+<h4>Eat:</h4>
+<% @day.places.each do |p| %>
+  <% if p.place_type == 3 %>
+    <ul>
+      <hr>
+      <img class:"place_img" src="<%=p.image%>" alt="">
+      <br>
+      <%= link_to p.name, place_path(p) %>
+      <br>
+      <%= p.address %>
+    </ul>
+  <% end %>
+<% end %>

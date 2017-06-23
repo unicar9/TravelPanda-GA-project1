@@ -1,5 +1,6 @@
 class TripsController < ApplicationController
   before_action :get_trip, except:[:new,:create]
+  before_action :check_if_logged_in
 
   def get_trip
     @trip = Trip.find params["id"]

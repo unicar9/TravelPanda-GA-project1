@@ -17,6 +17,7 @@ puts "seed user planted....."
 
 Trip.destroy_all
 t1 = Trip.create name:"Japan Exploration", start_date:"2017-12-14", end_date:"2017-12-20", destination:"Tokyo, Kyoto, Osaka"
+t2 = Trip.create name:"Mars Day Tour", start_date:"2089-03-30", end_date:"2089-03-30", destination:"Mars"
 
 puts "seed trip planted......"
 
@@ -31,7 +32,7 @@ d7 = Day.create trip_date:"2017-12-20", destination:"Osaka - Shanghai"
 
 t1.days << d1 << d2 << d3 << d4 << d5 << d6 << d7
 
-u1.trips << t1
+u1.trips << t1 << t2
 
 puts "days planted, days added to trip, trip added to user....."
 

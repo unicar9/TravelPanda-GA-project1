@@ -18,6 +18,10 @@
   box-sizing: border-box;
 }
 
+.travel-dates{
+  font-size: 14px;
+  color: grey;
+}
 
 .trip-users{
   float:right;
