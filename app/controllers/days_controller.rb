@@ -28,6 +28,13 @@ class DaysController < ApplicationController
   end
 
   def create_and_add_place
+    @place = Place.new
+  end
+
+  def add_created_place_to_day
+    @place = Place.create place_params
+    @day.places << @place
+    redirect_to trip_day_path(@trip, @day)
   end
 
 
@@ -67,5 +74,8 @@ class DaysController < ApplicationController
   private
   def day_params
     params.require(:day).permit(:trip_date, :destination)
+  end
+  def place_params
+    params.require(:place).permit(:place_type, :name, :address, :url, :map_url, :image)
   end
 end

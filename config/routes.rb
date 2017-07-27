@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   delete '/login' => 'session#destroy' # log out destroy the session
 
   resources :users
+
   resources :trips do
     resources :days
   end
@@ -22,16 +23,17 @@ Rails.application.routes.draw do
   post '/trips/:id/invite' => 'trips#invite_user'
 
   get '/trips/:trip_id/days/:id/add' => 'days#add_new_place'
-  get '/trips/:trip_id/days/:id/add/search_res' => 'days#search_res'
+  get '/trips/:trip_id/days/:id/add/search_res' => 'days#search_res', as: "search_res"
 
   resources :places
 
   get'trips/:trip_id/days/:id/add/new' => 'days#create_and_add_place'
 
+  post 'trips/:trip_id/days/:id/add/new' => 'days#add_created_place_to_day', as:'add_created_place_to_day'
 
   resources :transportations
   resources :accomodations
-  
+
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

@@ -27,17 +27,14 @@
           <%= submit_tag("Login", class:"ui fluid large teal submit button") %>
         </div>
       </div>
-
       <div class="ui error message">
         <% if flash[:error].present? %>
-          <p>
-            <strong>
-              <%= flash[:error] %>
-            </strong>
-          </p>
+          <%= flash[:error] %>
         <% end %>
       </div>
     <% end %>
+
+
 
     <div class="ui message">
       New to us? <%= link_to "Signup", new_user_path %>

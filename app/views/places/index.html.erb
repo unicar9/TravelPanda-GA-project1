@@ -8,6 +8,7 @@
     <div class="data-item-name">
       <%= link_to place.name, place_path(place) %>
     </div>
+    
     <div class="data-item-links">
       <%= link_to_if @current_user.is_admin, "edit", edit_place_path(place) %> |
       <%= link_to_if @current_user.is_admin, "delete", place_path(place), data:{:confirm => "Delete Place?"}, :method => :delete %>
