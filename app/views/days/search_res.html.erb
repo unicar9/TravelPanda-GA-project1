@@ -9,12 +9,24 @@
 </h4>
 
 
-<ul>
+<div class="ui divided items">
   <% @places.each do |p| %>
-      <hr>
-      <%= image_tag(p.image) %>
-      <br>
-      <%= p.name %> <%= button_to 'Add to Day', add_place_to_day_path(@trip, @day, p.id), method: :post  %>
+    <div class="item">
+      <div class="image"><%= image_tag(p.image) %></div>
 
+      <div class="content">
+
+        <a class="header"><%= p.name %></a>
+
+        <div class="description">
+          <p><%= p.address %></p>
+        </div>
+
+        <div class="extra">
+          <%= button_to 'Add to Day', {url: add_place_to_day_path(@trip, @day, p.id), method: :post}, {class:"ui teal button"}  %>
+        </div>
+
+      </div>
+    </div>
   <% end %>
-</ul>
+</div>
