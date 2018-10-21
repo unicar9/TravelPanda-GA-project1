@@ -6,10 +6,10 @@
   </p>
 <% end %>
 
-<%= form_tag("/trips/#{@trip.id}/invite", method: "post", class:"form") do %>
+<%= form_tag("/trips/#{@trip.id}/invite", method: "post", class:"ui form") do %>
   <div class="field">
     <%= label_tag :q, "Search User Email" %>
     <%= email_field_tag :q %>
   </div>
-  <%= submit_tag "Invite" %>
+  <%= submit_tag "Invite", class: "ui button teal" %>
 <% end %>
