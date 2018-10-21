@@ -24,7 +24,7 @@
 
         <div class="extra">
           <div class="ui label"><%= p.place_type %></div>
-          <%= button_to 'Add to Day', {url: add_place_to_day_path(@trip, @day, p.id), method: :post}, {class:"ui teal button right floated"}  %>
+          <%= link_to 'Add to Day', add_place_to_day_path(@trip, @day, p.id), method: :post, class:"ui teal button right floated"  %>
         </div>
 
       </div>

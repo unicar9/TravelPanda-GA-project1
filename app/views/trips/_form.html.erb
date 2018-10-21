@@ -13,12 +13,12 @@
 
 		<div class="field">
 			<%= f.label :start_date %>
-			<%= f.text_field :start_date %>
+			<%= f.text_field :start_date, class:"jq-datepicker start-date" %>
 		</div>
 
 		<div class="field">
 			<%= f.label :end_date %>
-			<%= f.text_field :end_date %>
+			<%= f.text_field :end_date, class:"jq-datepicker end-date" %>
 		</div>
 
 		<%= f.submit class: "ui button teal" %>

@@ -12,4 +12,42 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require_tree .
+
+
+$(document).ready(function(){
+    $( function() {
+        var dateFormat = "dd/mm/yy",
+        from = $( ".jq-datepicker.start-date" ).datepicker({
+            defaultDate: "+1w",
+            dateFormat: dateFormat,
+            changeMonth: true,
+            numberOfMonths: 2 
+        }).on('change', function(){
+            to.datepicker("option", "minDate", getDate(this));
+            console.log('to changed', getDate(this))
+        }),
+        to = $('.jq-datepicker.end-date').datepicker({
+            defaultDate: "+1w",
+            dateFormat: dateFormat,
+            changeMonth: true,
+            numberOfMonths: 2
+        }).on('change', function(){
+            from.datepicker("option", "maxDate", getDate(this));
+        });
+
+        function getDate(element){
+            var date;
+            try {
+                date = $.datepicker.parseDate( dateFormat, element.value );
+            } catch (error) {
+                date = null;
+            }
+            return date;
+        }
+
+    });
+
+
+});
