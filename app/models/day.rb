@@ -2,11 +2,12 @@
 #
 # Table name: days
 #
-#  id         :integer          not null, primary key
-#  trip_date  :date
-#  trip_id    :integer
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id          :integer          not null, primary key
+#  trip_date   :date
+#  trip_id     :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  destination :text
 #
 
 class Day < ApplicationRecord
