@@ -14,16 +14,22 @@
   </div>
 
   <div class="eight wide column">
-    <ul>
+    <div class="ui items">
       <% @trip.days.each_with_index do |d,i| %>
-        <li>
-          Day <%= i+1 %> -
-          <%= link_to d.trip_date, trip_day_path(@trip.id, d.id) %> |
-          <%= link_to "x", trip_day_path(@trip.id, d.id), data:{:confirm => "Sure?"}, :method => :delete %>
-        </li>
+        <div class="item">
+            <div class="content">
+              <%= link_to "Day #{i+1} | #{d.destination} ", trip_day_path(@trip.id, d.id), class:"header" %> 
+              <div class="meta">
+                <%= link_to d.trip_date, trip_day_path(@trip.id, d.id) %> 
+              </div>
+              <div class="extra">
+                <%= link_to "delete", trip_day_path(@trip.id, d.id), class: "ui button right floated teal", data:{:confirm => "Sure?"}, :method => :delete %>
+              </div>
+            </div>
+        </div>
       <% end %>
-    </ul>
-    <p> <%= link_to "Add One Day", new_trip_day_path(@trip.id) %>   </p>
+    </div>
+    <p> <%= link_to "Add One Day", new_trip_day_path(@trip.id), class: "ui button teal" %>   </p>
 
   </div>
 
