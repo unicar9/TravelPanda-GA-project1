@@ -1,22 +1,32 @@
 <h3>My Homepage</h3>
 
-<%= cl_image_tag @user.image %>
+<div class="ui grid">
+	<div class="four wide column">
+		<%= cl_image_tag @user.image %>
 
-<h3><%= @user.name %></h3>
+		<h3><%= @user.name %></h3>
 
-<i class="edit small icon"></i>
-<%= link_to_if @current_user == @user, 'account settings', edit_user_path(@user) %>
+		<i class="edit small icon"></i>
+		<%= link_to_if @current_user == @user, 'account settings', edit_user_path(@user) %>
+		
+	</div>
+
+	<div class="twelve wide column">
+		<h4>My Trips:</h4>
+		<ul>
+			<% @user.trips.each do |trip| %>
+				<li>
+					<h3><%= link_to trip.name, trip_path(trip) %> <span class= "travel-dates"> | <%= trip.destination %> | <%= trip.start_date %> </span></h3>
+				</li>
+			<% end %>
+		</ul>
+
+
+		<%= button_to "add new trip", new_trip_path, method:"get", class:"ui teal button"%>
+	</div>
+</div>
 
 
 
-<h4>My Trips:</h4>
-<ul>
-  <% @user.trips.each do |trip| %>
-    <li>
-      <h3><%= link_to trip.name, trip_path(trip) %> <span class= "travel-dates"> | <%= trip.destination %> | <%= trip.start_date %> </span></h3>
-    </li>
-  <% end %>
-</ul>
 
 
-<%= button_to "add new trip", new_trip_path, method:"get", class:"ui teal button"%>
