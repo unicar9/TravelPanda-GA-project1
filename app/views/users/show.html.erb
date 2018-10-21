@@ -12,17 +12,29 @@
 	</div>
 
 	<div class="twelve wide column">
-		<h4>My Trips:</h4>
-		<ul>
+		<div class="ui clearing segment">
+			<h3 class="ui left floated header">
+				My Trips:
+				<div class="sub header">Exploration is out there!</div>
+			</h3>
+			<%= button_to "Add New Trip", new_trip_path, method:"get", class:"ui teal button ui right floated"%>
+		</div>
+
+		<div class="ui divided items">
 			<% @user.trips.each do |trip| %>
-				<li>
-					<h3><%= link_to trip.name, trip_path(trip) %> <span class= "travel-dates"> | <%= trip.destination %> | <%= trip.start_date %> </span></h3>
-				</li>
+				<div class="item">
+					<div class="content">
+						<%= link_to trip.name, trip_path(trip), class: "header" %>
+						<div class="meta">
+							<span class= "travel-dates">
+								<%= trip.destination %>
+								<%= trip.start_date %> 
+							</span>
+						</div>
+					</div>
+				</div>
 			<% end %>
-		</ul>
-
-
-		<%= button_to "add new trip", new_trip_path, method:"get", class:"ui teal button"%>
+		</div>
 	</div>
 </div>
 
